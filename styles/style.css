@@ -1,0 +1,280 @@
+@import './fonts/fonts.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #262626;
+  font-family: "Open Sans", sans-serif;
+}
+
+.content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+}
+
+.search-wrapper {
+  width: 70%;
+  display: flex;
+  margin: 10px auto 0;
+}
+
+.search {
+  width: 90%;
+  height: 31px;
+  text-indent: 10px;
+  font-size: 20px;
+  background-color: #121212;
+  color: #6c6c6c;
+  border-radius: 4px;
+  border: none;
+}
+
+.search::placeholder {
+  color: #6c6c6c;
+  font-weight: 300;
+}
+
+.btn-search {
+  min-width: 65px;
+  width: 10%;
+  max-width: 100px;
+  border-radius: 4px;
+  border: none;
+  background-color: #373737;
+}
+
+.btn-search:hover {
+  background-color: #c00830;
+  cursor: pointer;
+}
+
+.magnifier::before {
+  font-family: 'FontAwesome';
+  content: "\f002";
+  font-style: normal;
+  font-size: 23px;
+  line-height: 1.2;
+  color: #6c6c6c;
+}
+
+.btn-search:hover > .magnifier::before {
+  color: #ffffff;
+}
+
+.main {
+  display: flex;
+  margin: auto 0;
+  flex-direction: column;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.clips-wrapper {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-around;
+  transition: all 2s ease 0s;
+  position: relative;
+  left: 0;
+  scroll-behavior: smooth;
+  width: 300%;
+}
+
+.clip {
+  position: relative;
+  width: 320px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  margin: 10px 0;
+  background-color: #6c6c6c;
+  border-radius: 10px;
+  transition: all 0.5s ease-out 0s;
+}
+
+.clip:hover {
+  background-color: #c00830;
+  transition: all 0.5s ease-out 0s;
+  transform: scale(1.02);
+}
+
+.clip__image {
+  margin-top: 15px;
+  height: 180px;
+}
+
+.clip__link {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  background-color: rgba(55, 55, 55, 0.9);
+  color: #dedede;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0 10px;
+}
+
+.clip__link:hover {
+  color: #c00830;
+}
+
+.clip__channel-title,
+.clip__published-at,
+.clip__views {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.channel-title__icon::before,
+.clip__published-at::before,
+.clip__views::before {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-size: 28px;
+}
+
+.channel-title__icon::before {
+  content: '\f007';
+  margin: 0 22px;
+}
+
+.clip__published-at::before {
+  content: '\f073';
+  margin: 0 20px;
+}
+
+.clip__views::before {
+  content: '\f06e';
+  margin: 0 20px;
+}
+
+.channel-title,
+.published-at,
+.views {
+  margin-right: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.clip__description {
+  padding: 0 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.nav-buttons-wrapper {
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  display: none;
+  margin-top: 35px;
+}
+
+.nav-btn {
+  width: 35px;
+  height: 35px;
+  background-color: #c00830;
+  border-radius: 50%;
+  border: 2px solid #6c6c6c;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.previous-button {
+  position: relative;
+  text-indent: -2px;
+  cursor: pointer;
+}
+
+.display-page {
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-button {
+  position: relative;
+  text-indent: 2px;
+  cursor: pointer;
+}
+
+.prev-tooltip,
+.next-tooltip {
+  position: absolute;
+  display: inline-flex;
+  width: 40px;
+  height: 30px;
+  bottom: 2px;
+  font-size: 20px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  border-radius: 6px;
+  color: #000000;
+  opacity: 0;
+}
+
+.prev-tooltip {
+  margin-left: -110px;
+}
+
+.next-tooltip {
+  margin-left: 110px;
+}
+
+.prev-tooltip::after,
+.next-tooltip::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  border: 5px solid transparent;
+}
+
+.prev-tooltip::after {
+  border-left: 5px solid yellow;
+  left: 40px;
+}
+
+.next-tooltip::before {
+  border-right: 5px solid yellow;
+  right: 40px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+}
+
+.footer-content {
+  padding: 10px 0;
+  margin: 0 auto;
+  color: #6c6c6c;
+  font-size: 10px;
+}
+
+@media (max-width: 699px) {
+  .clips-wrapper {
+    transition: all 1.5s ease 0s;
+  }
+}
