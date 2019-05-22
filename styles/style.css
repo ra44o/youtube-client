@@ -86,11 +86,13 @@ body {
   display: flex;
   overflow: hidden;
   justify-content: space-around;
-  transition: all 2s ease 0s;
   position: relative;
   left: 0;
   scroll-behavior: smooth;
-  width: 300%;
+}
+
+.animation {
+  transition: left .8s ease 0s;
 }
 
 .clip {
@@ -274,7 +276,17 @@ body {
 }
 
 @media (max-width: 699px) {
-  .clips-wrapper {
-    transition: all 1.5s ease 0s;
+
+  .clip {
+    height: 430px;
+  }
+
+  .nav-buttons-wrapper {
+    margin: 0;
+  }
+
+  .prev-tooltip,
+  .next-tooltip {
+    display: none;
   }
 }
